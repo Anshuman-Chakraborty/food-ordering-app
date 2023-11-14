@@ -130,7 +130,7 @@
         android:textAllCaps="false"/>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button3"
+        android:id="@+id/loginBtn"
         android:layout_width="152dp"
         android:layout_height="57dp"
         android:layout_marginTop="16dp"
@@ -144,7 +144,7 @@
         />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/dontHaveTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -152,9 +152,9 @@
         android:text="Don't Have An Account?"
         android:textColor="@color/DarkGreen"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/button3"
-        app:layout_constraintStart_toStartOf="@+id/button3"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        app:layout_constraintEnd_toEndOf="@+id/loginBtn"
+        app:layout_constraintStart_toStartOf="@+id/loginBtn"
+        app:layout_constraintTop_toBottomOf="@+id/loginBtn" />
 
     <TextView
         android:id="@+id/textView11"

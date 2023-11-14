@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="63dp"
         android:padding="10dp"
-        android:text="To provide you with the best user experience, we need your permssion to access you device location. By enabling location services, we can offer you personalized restaurant recommendations and accurate delivery estimates thus ensuring a seamless food delivery experience"
+        android:text="@string/chooseLocationText"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"

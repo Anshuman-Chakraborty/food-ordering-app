@@ -5,29 +5,24 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.denzcoskun.imageslider.constants.ScaleTypes
+import com.denzcoskun.imageslider.interfaces.ItemClickListener
+import com.denzcoskun.imageslider.models.SlideModel
 import com.portfolio.friesandthighs.R
+import com.portfolio.friesandthighs.adapter.PopularAdapter
+import com.portfolio.friesandthighs.databinding.FragmentHomeBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [HomeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class HomeFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private lateinit var binding: FragmentHomeBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
+
     }
 
     override fun onCreateView(
@@ -35,26 +30,45 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
+        return binding.root
+
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val imageList = ArrayList<SlideModel>()
+        imageList.add(SlideModel(R.drawable.banner1, ScaleTypes.FIT))
+        imageList.add(SlideModel(R.drawable.banner2, ScaleTypes.FIT))
+        imageList.add(SlideModel(R.drawable.banner3, ScaleTypes.FIT))
+
+        val imageSlider = binding.imageSlider
+        imageSlider.setImageList(imageList)
+        imageSlider.setImageList(imageList,ScaleTypes.FIT)
+
+        imageSlider.setItemClickListener(object : ItemClickListener{
+            override fun doubleClick(position: Int) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onItemSelected(position: Int) {
+                val itemPosition = imageList[position]
+                val itemMessage = "Selected Image. $position"
+                Toast.makeText(requireContext(),itemMessage,Toast.LENGTH_SHORT).show()
+            }
+        })
+
+        val foodName = listOf("Burger","Sandwitch","Momos","item")
+        val price = listOf("$5","$3","$5","10")
+        val popularFoodImages = listOf(R.drawable.menu1,R.drawable.menu2,R.drawable.menu3,R.drawable.menu4)
+        val adapter = PopularAdapter(foodName,price,popularFoodImages)
+        binding.popularRecyclerView.layoutManager=LinearLayoutManager(requireContext())
+        binding.popularRecyclerView.adapter = adapter
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment HomeFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            HomeFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+
     }
 }

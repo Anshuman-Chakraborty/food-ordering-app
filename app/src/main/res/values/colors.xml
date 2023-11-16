@@ -4,4 +4,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="lightGreen">#80F084</color>
     <color name="DarkGreen">#0D8711</color>
+    <color name="Chrome">#FFC107</color>
 </resources>

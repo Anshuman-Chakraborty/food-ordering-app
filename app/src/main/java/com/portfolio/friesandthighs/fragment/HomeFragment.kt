@@ -13,6 +13,7 @@ import com.denzcoskun.imageslider.models.SlideModel
 import com.portfolio.friesandthighs.R
 import com.portfolio.friesandthighs.adapter.PopularAdapter
 import com.portfolio.friesandthighs.databinding.FragmentHomeBinding
+import com.portfolio.friesandthighs.menuBottomSheetFragment
 
 
 class HomeFragment : Fragment() {
@@ -31,6 +32,10 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(inflater, container, false)
+        binding.ViewAllMenu.setOnClickListener {
+            val bottomSheetDialog = menuBottomSheetFragment()
+            bottomSheetDialog.show(parentFragmentManager,"Test")
+        }
         return binding.root
 
 

@@ -1,11 +1,14 @@
 package com.portfolio.friesandthighs.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.portfolio.friesandthighs.CongratsBottomSheet
+import com.portfolio.friesandthighs.PayOutActivity
 import com.portfolio.friesandthighs.R
 import com.portfolio.friesandthighs.adapter.CartAdapter
 import com.portfolio.friesandthighs.databinding.FragmentCartBinding
@@ -36,6 +39,13 @@ class CartFragment : Fragment() {
         val adapter = CartAdapter(ArrayList(cartFoodName),ArrayList(cartItemPrice),ArrayList(cartImage))
         binding.cartRecyclerView.layoutManager=LinearLayoutManager(requireContext())
         binding.cartRecyclerView.adapter = adapter
+
+        binding.proceedButton.setOnClickListener {
+            val intent = Intent(requireContext(),PayOutActivity::class.java)
+            startActivity(intent)
+        }
+
+
         return binding.root
     }
 

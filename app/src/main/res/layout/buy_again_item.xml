@@ -50,6 +50,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="$5"
+                android:textColor="@color/lightGreen"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/buyAgainFoodName"
                 app:layout_constraintTop_toBottomOf="@+id/buyAgainFoodName" />
@@ -63,6 +64,7 @@
                 android:fontFamily="@font/aclonica"
                 android:text="Buy again"
                 android:textAllCaps="false"
+                android:textColor="@color/white"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

@@ -18,15 +18,16 @@
         android:src="@drawable/arrow_left">
 
     </ImageButton>
+
     <TextView
-        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Cart"
-        android:textSize="24sp"
-        android:textColor="@color/black"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/aclonica"
-        android:layout_marginTop="8dp"/>
+        android:gravity="center"
+        android:text="Menu"
+        android:textColor="@color/black"
+        android:textSize="24sp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/menuRecyclerView"
